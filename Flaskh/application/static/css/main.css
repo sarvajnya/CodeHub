@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+li {
+    display: inline;
+    padding: 5px;
+}
+a {
+    text-decoration: none;
+    color: pink;
+}
+hr {
+    width: 100%;
+    height:4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkblue;
+    border: 0 none;
+}
+input[type=text], input[type=password] {
+    width: 150%;
+    padding: 7px;
+    /* margin: 5px 0 22px 0; */
+    display: inline-block;
+    border: none;
+    background: white;
+}
+.top-container {
+    background: #333333;
+    padding:5px;
+    border-bottom:2px solid #0f0f0f;
+}
+.bottom-container {
+    background: #333;
+    padding:5px;
+    border-top:2px solid #0f0f0f;
+    /* position:absolute; */
+    bottom:0;
+}
+
+.container-term {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.btn-submit:hover {
+    opacity: 1;
+}
+.error-message {
+    color :red;
+}
+ .user {
+    float: right;
+    position: absolute;
+    font-size: 20px;
+    right: 10em;
+    top: 2em;
+
+}
+
+
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    position: relative;
+    margin:0px;
+    color: white;
+    background-color: #333333;
+}
+
+#aboutUs h2{
+    margin-bottom: 25px;
+}
+
+.img-wrap{
+    width:100%
+}
+
+.img-wrap img{width: 100%;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #999999;
+}
+
+.ide-button{
+    padding-top: 50px;
+    float:left;
+    box-shadow: 0 0 10px #999999;
+}
+
+#region login
+#input[type=submit] {
+              width: 150%;
+              background-color: #0066b2;
+              color: white;
+              padding: 12px 20px;
+              margin: 8px 0;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+           }
+
+#legend {
+              color: #0066b2;
+              padding: 10px 5px;
+              font-size: 30px;
+            }
+.container {
+              padding: 10px;
+            }
+#endregion
+
+.index-container{
+    background-color: #333333;
+}

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+    <head>
+        <style>
+            .index-container{
+                  margin-left: 2px; /* Same as the width of the sidenav */
+                  font-size: 20px; /* Increased text to enable scrolling */
+                  padding: 10px 00px;
+                  background-color: #333333;
+            }
+            .form1{
+                background-color: #333333;
+                width: 100%;
+                height: 100%;
+            }
+            .ide-button{
+                padding:25px;
+                background-color: #333333;
+                ;
+            }
+            .main{
+            background-color: #333333;
+            }
+            .ide{
+            background-color: #333333;
+            color:#ABA930;
+            }
+            textarea{
+                color:yellow;
+                background-color:#333333
+            }
+
+            .ide-button{
+                background-color: #333333;
+                border: None;
+                color: #ABA930;
+                padding: 10px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 18px;
+                margin: 4px 5px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+            .ide-button:hover{
+                background: #4A4A43;
+                color: white;
+            }
+
+            .save-title-des{
+                float:center;
+            }
+
+        </style>
+    </head>
+    <body style="background-color: #333333">
+        <div class ="index-container">
+            <form class="form1" action="{{ url_for('index') }}" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="main" style="width:70%;">
+                        {{ form.Run(class="ide-button") }}
+                        {{ form.Stop(class="ide-button") }}
+                        {{ form.Save(class="ide-button") }}
+                        {{ form.Download(class="ide-button") }}
+                        {{ form.language(class="ide-button") }}
+                        {% for language in form.languages %}
+                            <option value= "{{language}}" >{{language}}</option>"
+                        {% endfor %}
+                    </br> </br> </br>
+                    <div class="main1">
+                        <div class="ide">
+                            <div class="save-title-des">
+                                <p style="display:inline;">Title:</p>
+                                {{ form.title(rows='1', cols='25%',placeholder="Enter Title here..."
+                                ,display= inline) }}
+                                <p style="display:inline;">Description:</p>
+                                {{ form.description(rows='1', cols='30%',placeholder="Enter Description here...",
+                                display=inline)}}
+                            </div>
+                            {{ form.code(rows='21',cols='99%', placeholder="Enter Code here...") }}
+                            <h4 for="comment">Predefined input:</h4>
+                            {{ form.input(rows='3',cols='99%',placeholder="Enter Input here...")}}
+                            <h4 for="comment">Output:</h4>
+                            {{ form.output(rows='3',cols='99%') }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+{% endblock %}

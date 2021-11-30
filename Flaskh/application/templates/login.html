@@ -1,0 +1,60 @@
+    {% extends "layout.html" %}
+
+    {% block content %}
+    <style>
+
+            input[type=submit] {
+              width: 150%;
+              background-color: #4CAF50;
+              color: white;
+              padding: 12px 20px;
+              margin: 8px 0;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+
+            }
+
+            legend {
+              color: #0066b2;
+              padding: 8px 5px;
+              font-size: 30px;
+            }
+            .container {
+              padding: 10px;
+              background-color: #333333;
+              color:white;
+            }
+
+        </style>
+    <body  style="background-color: #333333">
+        <div class="container">
+            <div class="form-login" style="width: 30%; margin-left: 30%; margin-top:1px; ">
+                <form name="login" action="" method="post" novalidate>
+                    <fieldset class="form-group">
+                        <legend>{{title}}</legend>
+                        {{ form.hidden_tag() }}
+
+                        <p>
+                            {{ form.email.label }}<br>
+                            {{ form.email(size=35, class = "form-control") }}
+                            {% for error in form.email.errors %}
+                                <span class="error-message">{{ error }}</span>
+                            {% endfor %}
+                        </p>
+                        <p>
+                            {{ form.password.label }}<br>
+                            {{ form.password(size=15, class = "form-control") }}
+                            {% for error in form.password.errors %}
+                                <span class="error-message">{{ error }}</span>
+                            {% endfor %}
+                        </p>
+
+                        <p>
+                            {{ form.submit() }}
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+ {% endblock %}

@@ -1,0 +1,65 @@
+    <style>
+        h2{
+            color: #999999;
+            text-align: center;
+            font-family: verdana;
+            font-size: 35px;
+            font-weight: bold;
+            font-style: oblique
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .sidenav {
+            height: 100%;
+            width: 300px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #202020;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+          padding: 6px 8px 6px 16px;
+          text-decoration: none;
+          font-size: 20px;
+          color: #ABA930;
+          display: block;
+        }
+
+        .sidenav a:hover {
+          color: #333333;
+        }
+
+        .main{
+          margin-left: 220px; /* Same as the width of the sidenav */
+          font-size: 20px; /* Increased text to enable scrolling */
+          padding: 0px 10px;
+          background-color: #333333;
+        }
+
+        @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+        }
+    </style>
+    <nav class="sidenav">
+        <h2>Debug Entity</h2>
+            <ul>
+                <a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}">IDE</a></li>
+                {% if not session['user_name'] %}
+                    <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link {% if register %}active{% endif %}">Register</a></li>
+                    <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}">Login</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{{ url_for('SavedCode') }}" class="nav-link {% if SavedCode %}active{% endif %}">Saved Code</a></li>
+                    <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link {% if logout %}active{% endif %}">Logout</a></li>
+                {% endif %}
+{#                    <li class="nav-item"><a href="{{ url_for('SavedCode') }}" class="nav-link {% if logout %}active{% endif %}">Saved Code</a></li>#}
+{#                <li class="nav-item"><a href="{{ url_for('courses') }}" class="nav-link {% if courses %}active{% endif %}">My code</a></li>#}
+            </ul>
+    </nav>
+

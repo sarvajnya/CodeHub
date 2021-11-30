@@ -1,0 +1,67 @@
+{% extends "layout.html"%}
+{% block content %}
+    <style>
+        .col-md-12{
+            padding: 10px;
+            background-color: #333333;
+            color:#ABA930;
+        }
+        .form1{
+            padding: 10px;
+            background-color: #333333;
+            color:#ABA930;
+        }
+
+    </style>
+    <body style="background-color: #333333">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {% if not savedCode %}
+                    <h1>You have no saved Code.</h1>
+                {% else %}
+                    <h1>Saved Codes : </h1>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">language</th>
+                            <th scope="col">Date - Time</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Download</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <!-- Construct the rest of code here -->
+                        {% for Code in savedCode %}
+                            <form name="form1" action="{{ url_for('SavedCode') }}" method="POST">
+                                <tr>
+
+                                    <td scope='row'>{{count}}</td>
+                                    <td>{{Code["title"]}}</td>
+                                    <td>{{Code["description"]}}</td>
+                                    <td>{{Code["language"]}}</td>
+                                    <td>{{Code["date"]}}</td>
+
+                                    <input type="hidden" name="title" value="{{Code['title']}}">
+                                    <input type="hidden" name="description" value="{{Code['description']}}">
+                                    <input type="hidden" name="language" value="{{Code['language']}}">
+                                    <input type="hidden" name="date" value="{{Code['date']}}">
+                                    <input type="hidden" name="code" value="{{Code['code']}}">
+                                    <td><button name="edit">Edit</button></td>
+                                    <td><button name="delete">Delete</button></td>
+                                    <td><button name="Download">Download</button></td>
+
+                                </tr>
+                            </form>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+{% endblock %}

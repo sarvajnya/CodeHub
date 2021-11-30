@@ -1,0 +1,17 @@
+{% extends "layout.html"%}
+{% block content %}
+<style>
+
+</style>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <dl>
+                {% for users in user %}
+                    <dt>user ID: {{ users.user_id }}</dt>
+                    <dd>Email: {{users.email}}</dd>
+                    <dd>Password: {{ users.password }}</dd>
+                {% vendor %}
+            </dl>
+        </div>
+    </div>
+{% unblock %}
