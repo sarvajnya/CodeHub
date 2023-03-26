@@ -3,58 +3,60 @@
     <head>
         <style>
             .index-container{
-                  margin-left: 2px; /* Same as the width of the sidenav */
-                  font-size: 20px; /* Increased text to enable scrolling */
+                  margin-left: 2px; 
+                  font-size: 20px; 
                   padding: 10px 00px;
-                  background-color: #333333;
+                  background-color: #B9F3FC;
             }
             .form1{
-                background-color: #333333;
+                background-color: #B9F3FC;
                 width: 100%;
                 height: 100%;
             }
-            .ide-button{
-                padding:25px;
-                background-color: #333333;
-                ;
-            }
-            .main{
-            background-color: #333333;
-            }
-            .ide{
-            background-color: #333333;
-            color:#ABA930;
-            }
-            textarea{
-                color:yellow;
-                background-color:#333333
-            }
-
-            .ide-button{
-                background-color: #333333;
-                border: None;
-                color: #ABA930;
+            .ide-button{                
+                
+                background-color: #FFB84C;
+                text-align: center;
+                border-radius: 50px;  
+                color: #144272;
                 padding: 10px 25px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
                 font-size: 18px;
                 margin: 4px 5px;
-                cursor: pointer;
-                border-radius: 4px;
+                cursor: pointer; 
+                             
             }
+            .main{
+            background-color: #B9F3FC;
+            }
+            .ide{
+            background-color: #93C6E7;
+            color:#ABA930;
+            }
+            textarea{
+                color:yellow;
+                background-color:#B9F3FC;
+            }
+
+            
             .ide-button:hover{
-                background: #4A4A43;
+                background-color: #ABA930;
                 color: white;
             }
 
             .save-title-des{
+                background-color: #B9F3FC;
                 float:center;
+            }
+            .main1{
+                background-color: #B9F3FC;
             }
 
         </style>
     </head>
-    <body style="background-color: #333333">
+    <body style="background-color: #B9F3FC">
         <div class ="index-container">
             <form class="form1" action="{{ url_for('index') }}" method="post" novalidate>
                 {{ form.hidden_tag() }}
@@ -71,18 +73,13 @@
                     <div class="main1">
                         <div class="ide">
                             <div class="save-title-des">
-                                <p style="display:inline;">Title:</p>
-                                {{ form.title(rows='1', cols='25%',placeholder="Enter Title here..."
-                                ,display= inline) }}
-                                <p style="display:inline;">Description:</p>
-                                {{ form.description(rows='1', cols='30%',placeholder="Enter Description here...",
-                                display=inline)}}
+                                <pre><p style="display:inline;color:#B9F3FC;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline) }}<p style="display:inline;color:#B9F3FC;"></p>               {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline)}}</pre>
                             </div>
-                            {{ form.code(rows='21',cols='99%', placeholder="Enter Code here...") }}
-                            <h4 for="comment">Predefined input:</h4>
-                            {{ form.input(rows='3',cols='99%',placeholder="Enter Input here...")}}
-                            <h4 for="comment">Output:</h4>
-                            {{ form.output(rows='3',cols='99%') }}
+                            {{ form.code(rows='10',cols='85%', placeholder="Enter Code here...") }}
+                            <h4 for="comment" style="color:#144272">Predefined input:</h4>
+                            {{ form.input(rows='2',cols='85%',placeholder="Enter Input here...")}}
+                            <h4 for="comment" style="color:#144272">Output:</h4>
+                            {{ form.output(rows='2',cols='85%') }}
                         </div>
                     </div>
                 </div>

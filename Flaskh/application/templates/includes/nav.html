@@ -18,7 +18,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #202020;
+            background-color: #E1EEDD;
             overflow-x: hidden;
             padding-top: 20px;
         }
@@ -32,7 +32,7 @@
         }
 
         .sidenav a:hover {
-          color: #333333;
+          color: #FFB84C;
         }
 
         .main{
@@ -48,7 +48,7 @@
         }
     </style>
     <nav class="sidenav">
-        <h2>Debug Entity</h2>
+        <h2 style="color: #540375;">CODEHUB</h2><br><br><br>
             <ul>
                 <a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}">IDE</a></li>
                 {% if not session['user_name'] %}

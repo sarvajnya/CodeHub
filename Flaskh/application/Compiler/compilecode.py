@@ -43,7 +43,7 @@ def Compile(code: str, compiler: str, arg: any):
 
 
 def creating_file(code_file: str, compiler: str):
-    path = "R:\Pace\CompilerFile"  # os.path.dirname(__file__)
+    path = "D:\OnlineCompilerUsingCloudComputing\Flaskh/application\Compiler"  # os.path.dirname(__file__)
     file_name = path + "\Sample"
     if compiler == "C":
         file_name = file_name + ".c"

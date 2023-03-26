@@ -16,12 +16,15 @@ class python_compiler:
             data, temp = os.pipe()
             if has_arg:
                 os.write(temp, bytes(arg + "\n", "utf-8"))
+                cmd = 'python ' + code_to_compile + ' ' + (arg[0])
+
             else:
                 os.write(temp, bytes("" + "\n", "utf-8"))
+                cmd = 'python ' + code_to_compile
             os.close(temp)
 
             # executing class file for the main execution
-            cmd = 'python ' + code_to_compile
+
             popen_result = check_output(cmd, shell=True, stdin=PIPE, stderr=PIPE, universal_newlines=True, bufsize=1)
             return_string = popen_result
         except CalledProcessError as e:
