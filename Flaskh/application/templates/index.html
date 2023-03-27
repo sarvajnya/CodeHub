@@ -2,6 +2,10 @@
 {% block content %}
     <head>
         <style>
+            body{
+                font-family: cursive;
+                
+            }
             .index-container{
                   margin-left: 2px; 
                   font-size: 20px; 
@@ -13,6 +17,7 @@
                 width: 100%;
                 height: 100%;
             }
+          
             .ide-button{                
                 
                 background-color: #FFB84C;
@@ -28,15 +33,15 @@
                 cursor: pointer; 
                              
             }
+            
             .main{
             background-color: #B9F3FC;
             }
-            .ide{
-            background-color: #93C6E7;
-            color:#ABA930;
+            .ide{            
+            color:black;
             }
             textarea{
-                color:yellow;
+                color:black;
                 background-color:#B9F3FC;
             }
 
@@ -69,17 +74,21 @@
                         {% for language in form.languages %}
                             <option value= "{{language}}" >{{language}}</option>"
                         {% endfor %}
+                        
                     </br> </br> </br>
                     <div class="main1">
                         <div class="ide">
+                            
                             <div class="save-title-des">
-                                <pre><p style="display:inline;color:#B9F3FC;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline) }}<p style="display:inline;color:#B9F3FC;"></p>               {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline)}}</pre>
+                                <pre><p style="display:inline;color:#B9F3FC;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline,style="background-color:#F7C8E0;") }}<p style="display:inline;color:#B9F3FC;"></p>                         {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#F7C8E0;")}}</pre>
                             </div>
-                            {{ form.code(rows='10',cols='85%', placeholder="Enter Code here...") }}
-                            <h4 for="comment" style="color:#144272">Predefined input:</h4>
-                            {{ form.input(rows='2',cols='85%',placeholder="Enter Input here...")}}
-                            <h4 for="comment" style="color:#144272">Output:</h4>
-                            {{ form.output(rows='2',cols='85%') }}
+                            
+                            {{ form.code(rows='10',cols='120%', placeholder="Enter Code here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';") }}
+                            <h4 for="comment" >Predefined input:</h4>
+                            {{ form.input(rows='2',cols='120%',placeholder="Enter Input here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';")}}
+                            <h4 for="comment" >Output:</h4>
+                            {{ form.output(rows='2',cols='120%',style="background-color:#F0EEED;font-family:'Times New Roman';") }}
+                            
                         </div>
                     </div>
                 </div>

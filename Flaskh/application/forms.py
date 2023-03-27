@@ -34,7 +34,7 @@ class Compiler(FlaskForm):
     code = TextAreaField("code")
     input = TextAreaField("input")
     output = TextAreaField("output")
-    language = SelectField("language", choices=['C', 'C++', 'Java', 'Python', 'C#'])
+    language = SelectField("language", choices=['C', 'C++'])
     Run = SubmitField("Run")
     Save = SubmitField("Save")
     Download = SubmitField("Download")

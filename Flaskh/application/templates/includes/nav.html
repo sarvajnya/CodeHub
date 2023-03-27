@@ -27,7 +27,7 @@
           padding: 6px 8px 6px 16px;
           text-decoration: none;
           font-size: 20px;
-          color: #ABA930;
+          color: #2e16b2;
           display: block;
         }
 
@@ -48,7 +48,7 @@
         }
     </style>
     <nav class="sidenav">
-        <h2 style="color: #540375;">CODEHUB</h2><br><br><br>
+        <h2 style="color: #540375; font-family:cursive;font-size:300%;">CODEHUB</h2><br><br><br>
             <ul>
                 <a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}">IDE</a></li>
                 {% if not session['user_name'] %}
@@ -58,8 +58,6 @@
                     <li class="nav-item"><a href="{{ url_for('SavedCode') }}" class="nav-link {% if SavedCode %}active{% endif %}">Saved Code</a></li>
                     <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link {% if logout %}active{% endif %}">Logout</a></li>
                 {% endif %}
-{#                    <li class="nav-item"><a href="{{ url_for('SavedCode') }}" class="nav-link {% if logout %}active{% endif %}">Saved Code</a></li>#}
-{#                <li class="nav-item"><a href="{{ url_for('courses') }}" class="nav-link {% if courses %}active{% endif %}">My code</a></li>#}
             </ul>
     </nav>
 
