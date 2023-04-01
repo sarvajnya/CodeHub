@@ -14,7 +14,7 @@ class compiler_path:
         self.csharp_path = config['DEFAULT']['csharp_path']
 
     java_path = "C:\Program Files\Java\jdk-19/bin"
-    c_path = "C:\TDM-GCC-64/bin"
-    cpp_path = "CC:\TDM-GCC-64/bin"
+    c_path = "C:\\TDM-GCC-64\\bin"
+    cpp_path = "C:\\TDM-GCC-64\\bin"
     csharp_path = "c:/windows/Microsoft.NET/Framework/v3.5/csc.exe"
     python_path = ""

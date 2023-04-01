@@ -10,6 +10,8 @@ from flask import render_template, request, flash, redirect, url_for, session, s
 from application.code_save import code_save
 # from flask_restplus import Resource
 from config import Config_info
+import subprocess
+from subprocess import check_output, check_call, Popen, PIPE, CalledProcessError
 
 ################################################################
 
@@ -85,9 +87,16 @@ def index():
         elif request.form.get("Download"):
             file_name = creating_file(code, language.upper())
             return send_file(file_name, as_attachment=True)
+        elif request.form.get("Convert"):
+            try:
+                f=open("D:\\OnlineCompilerUsingCloudComputing\\Flaskh\\application\\Compiler\\Sample.c","w")
+                f.write(form.code.data)
+                f.close()
+                output = check_output(['python', 'D:\\OnlineCompilerUsingCloudComputing\\Flaskh\\application\\Compiler\\FINAL.py'])
+                return send_file("D:\\OnlineCompilerUsingCloudComputing\\Flaskh\\application\\Compiler\\pythonoutput.py",as_attachment=True)
+            except Exception as e:
+                return f"An error occurred : {e}"
     return render_template("index.html", form=form, index=True)
-
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if session.get('user_name'):
@@ -99,7 +108,7 @@ def login():
         password = form.password.data
         user = User.objects(email=email).first()
         if user and user.get_password(password):
-            flash(user.first_name + " ,you are successfully logged in", "success")
+            flash(user.first_name + ", you have successfully logged in", "success")
             session['user_id'] = user.user_id
             session['user_name'] = user.first_name
             return render_template("index.html", form=empty_form, index=True)

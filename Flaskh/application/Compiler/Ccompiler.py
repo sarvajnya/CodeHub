@@ -48,4 +48,4 @@ class c_compiler:
                 else:
                     error_line = error_string
                 return_string = error_line
-        return return_string
+        return str(return_string,encoding="utf-8")

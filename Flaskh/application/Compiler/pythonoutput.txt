@@ -1,0 +1,5 @@
+##include <stdio.h>
+def main():
+    print('Jai Shree Ram')
+    return 0
+main()

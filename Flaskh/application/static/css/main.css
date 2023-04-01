@@ -32,14 +32,14 @@ input[type=text], input[type=password] {
     background: white;
 }
 .top-container {
-    background: #333333;
+    background: #B9F3FC;
     padding:5px;
-    border-bottom:2px solid #0f0f0f;
+    border-bottom:2px solid #B9F3FC;
 }
 .bottom-container {
-    background: #333;
+    background: #B9F3FC;
     padding:5px;
-    border-top:2px solid #0f0f0f;
+    border-top:2px solid #B9F3FC;
     /* position:absolute; */
     bottom:0;
 }
@@ -81,7 +81,7 @@ input[type=text], input[type=password] {
     to {
         width:0;
         height:0;
-        overflow:hidden;
+        /* overflow:hidden; */
     }
 }
 @-webkit-keyframes cssAnimation {
@@ -99,7 +99,7 @@ body {
     position: relative;
     margin:0px;
     color: white;
-    background-color: #333333;
+    background-color: #B9F3FC;
 }
 
 #aboutUs h2{
@@ -113,13 +113,13 @@ body {
 .img-wrap img{width: 100%;
     padding: 10px;
     border-radius: 50%;
-    box-shadow: 0 0 10px #999999;
+    box-shadow: 0 0 10px #B9F3FC;
 }
 
 .ide-button{
     padding-top: 50px;
     float:left;
-    box-shadow: 0 0 10px #999999;
+    box-shadow: 0 0 10px #B9F3FC;
 }
 
 #region login
@@ -144,5 +144,5 @@ body {
 #endregion
 
 .index-container{
-    background-color: #333333;
+    background-color: #B9F3FC;
 }

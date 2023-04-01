@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
     <head>
+     
         <style>
             body{
-                font-family: cursive;
-                
+                font-family: cursive;  
+                resize: none;              
             }
             .index-container{
                   margin-left: 2px; 
@@ -42,6 +43,7 @@
             }
             textarea{
                 color:black;
+                resize: none;
                 background-color:#B9F3FC;
             }
 
@@ -58,6 +60,46 @@
             .main1{
                 background-color: #B9F3FC;
             }
+            .editor {
+                display: inline-flex;
+                gap: 10px;
+                font-family: monospace;
+                line-height: 21px;
+                background: #282a3a;
+                border-radius: 2px;
+                padding: 20px 10px;
+              }
+        
+              .line-numbers {
+                width: 20px;
+                text-align: right;
+              }
+        
+              .line-numbers span {
+                counter-increment:  linenumber;
+              }
+        
+              .line-numbers span::before {
+                content: counter(linenumber);
+                display: block;
+                color: #506882;
+              }
+        
+              #temp1 {
+                line-height: 21px;
+                overflow-y: hidden;
+                padding: 0;
+                border: 0;
+                background: #282a3a;
+                color: #FFF;
+                min-width: 500px;
+                outline: none;
+                resize: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+              }
 
         </style>
     </head>
@@ -70,29 +112,61 @@
                         {{ form.Stop(class="ide-button") }}
                         {{ form.Save(class="ide-button") }}
                         {{ form.Download(class="ide-button") }}
-                        {{ form.language(class="ide-button") }}
+                        {{ form.language(class="ide-button",id="lang") }}
                         {% for language in form.languages %}
                             <option value= "{{language}}" >{{language}}</option>"
                         {% endfor %}
+                        {{ form.Convert(class="ide-button",id="convert") }}
+                        
+                        
+
                         
                     </br> </br> </br>
                     <div class="main1">
-                        <div class="ide">
-                            
+                        <div class="ide">                            
                             <div class="save-title-des">
-                                <pre><p style="display:inline;color:#B9F3FC;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline,style="background-color:#F7C8E0;") }}<p style="display:inline;color:#B9F3FC;"></p>                         {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#F7C8E0;")}}</pre>
+                                <pre><p style="display:inline;color:#B9F3FC;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline,style="background-color:#F7C8E0;") }}<p style="display:inline;color:#B9F3FC;"></p>                       {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#F7C8E0;")}}</pre>
                             </div>
+                            <div class="editor">
+      <div class="line-numbers">
+        <span></span>
+      </div>
+      {{ form.code(class="temp1",rows='23',cols='50', placeholder="Enter Code here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';position:relative;float:left;") }}
+
+    </div>  
                             
-                            {{ form.code(rows='10',cols='120%', placeholder="Enter Code here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';") }}
-                            <h4 for="comment" >Predefined input:</h4>
-                            {{ form.input(rows='2',cols='120%',placeholder="Enter Input here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';")}}
-                            <h4 for="comment" >Output:</h4>
-                            {{ form.output(rows='2',cols='120%',style="background-color:#F0EEED;font-family:'Times New Roman';") }}
+                            <h4 for="comment" style="position:absolute;top:180px;left:1100px;">Predefined input:</h4>
+                            {{ form.input(rows='6',cols='30',placeholder="Enter Input here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';position:absolute;top:220px;left:1100px;")}}
+                            <h4 for="comment" style="position:absolute;top:460px;left:1100px;">Output:</h4>
+                            {{ form.output(rows='6',cols='30',style="background-color:#F0EEED;font-family:'Times New Roman';position:absolute;top:500px;left:1100px;") }}
                             
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <script>
+            const textarea = document.querySelector('.temp1')
+            const lineNumbers = document.querySelector('.line-numbers')
+      
+            textarea.addEventListener('keyup', event => {
+              const numberOfLines = event.target.value.split('\n').length
+      
+              lineNumbers.innerHTML = Array(numberOfLines)
+                .fill('<span></span>')
+                .join('')
+            })
+      
+            textarea.addEventListener('keydown', event => {
+              if (event.key === 'Tab') {
+                const start = textarea.selectionStart
+                const end = textarea.selectionEnd
+      
+                textarea.value = textarea.value.substring(0, start) + '\t' + textarea.value.substring(end)
+      
+                event.preventDefault()
+              }
+            })
+          </script>
     </body>
 {% endblock %}

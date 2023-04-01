@@ -25,7 +25,7 @@ class RegistrationForm(FlaskForm):
     def validate_email(self, email):
         user = User.objects(email=email.data).first()
         if user:
-            raise ValidationError("Email is already in use!, please use other email")
+            raise ValidationError("Email is already in use!. Please use other email")
 
 
 class Compiler(FlaskForm):
@@ -40,6 +40,7 @@ class Compiler(FlaskForm):
     Download = SubmitField("Download")
     Stop = SubmitField("Stop")
     Share = SubmitField("Share")
+    Convert = SubmitField("Convert")
 
 
 class Saved_code(FlaskForm):
@@ -50,4 +51,4 @@ class Saved_code(FlaskForm):
     def validate_title(self, title):
         user = Savedcode.objects(email=title.data).first()
         if user:
-            raise ValidationError("Email is already in use!, please use other email")
+            raise ValidationError("Email is already in use!. Please use other email")

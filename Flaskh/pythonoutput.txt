@@ -1,0 +1,24 @@
+##include <stdio.h>
+def main():
+    op=" "
+#dodouble first, second;
+    print('Enter an operator (+, -, *, /): ')
+    print('Enter two operands: ')
+#switchswitch (op) 
+        case '+':
+        print(f'{first}1lf + {second}1lf = {first+second}1lf')
+        break
+        case '-':
+        print(f'{first}1lf - {second}1lf = {first-second}1lf')
+        break
+        case '*':
+        print(f'{first}1lf * {second}1lf = {first*second}1lf')
+        break
+        case '/':
+        print(f'{first}1lf / {second}1lf = {first/second}1lf')
+        break
+        # operator doesn't match any case constant
+        default:
+        print('Error not  operator is not correct')
+    return 0
+main()
