@@ -1025,7 +1025,7 @@ def Tx_Scanf(line):
     line = line
     a=line.split('"')
     # print(a)
-    if len(a[1]) == 2:
+    if len(a[1]) == 2 or len(a[1]) == 3:
         variables = a[2][1:-2].split(",")
         for i in range(0, len(variables)):
             variables[i] = variables[i][1:]        

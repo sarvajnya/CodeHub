@@ -5,7 +5,6 @@ def main():
     i=0
     flag=0
     flag=0
-    print('Enter a positive integer: \n')
     n = int(input())
     # 0 and 1 are not prime numbers
     # change flag to 1 for non-prime number
@@ -19,8 +18,8 @@ def main():
             break
     # flag is 0 for prime numbers
     if(flag==0):
-        print(f'\n{n} is a prime number.')
+        print(f'{n} is a prime number.')
     else:
-        print(f'\n{n} is not a prime number.')
+        print(f'{n} is not a prime number.')
     return 0
 main()

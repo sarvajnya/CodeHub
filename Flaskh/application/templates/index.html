@@ -4,17 +4,19 @@
      
         <style>
             body{
+              background-color: #443C68;
                 font-family: cursive;  
-                resize: none;              
+                resize: none;             
             }
+           
             .index-container{
                   margin-left: 2px; 
                   font-size: 20px; 
                   padding: 10px 00px;
-                  background-color: #B9F3FC;
+                  background-color: #443C68;
             }
             .form1{
-                background-color: #B9F3FC;
+                background-color: #443C68;
                 width: 100%;
                 height: 100%;
             }
@@ -31,12 +33,11 @@
                 display: inline-block;
                 font-size: 18px;
                 margin: 4px 5px;
-                cursor: pointer; 
-                             
+                cursor: pointer;                              
             }
             
             .main{
-            background-color: #B9F3FC;
+            background-color: #443C68;
             }
             .ide{            
             color:black;
@@ -44,7 +45,7 @@
             textarea{
                 color:black;
                 resize: none;
-                background-color:#B9F3FC;
+                background-color:#443C68;
             }
 
             
@@ -54,11 +55,11 @@
             }
 
             .save-title-des{
-                background-color: #B9F3FC;
+                background-color: #443C68;
                 float:center;
             }
             .main1{
-                background-color: #B9F3FC;
+                background-color: #443C68;
             }
             .editor {
                 display: inline-flex;
@@ -100,10 +101,11 @@
                 -ms-user-select: none;
                 user-select: none;
               }
-
+              
+              
         </style>
     </head>
-    <body style="background-color: #B9F3FC">
+    <body>
         <div class ="index-container">
             <form class="form1" action="{{ url_for('index') }}" method="post" novalidate>
                 {{ form.hidden_tag() }}
@@ -116,36 +118,36 @@
                         {% for language in form.languages %}
                             <option value= "{{language}}" >{{language}}</option>"
                         {% endfor %}
-                        {{ form.Convert(class="ide-button",id="convert") }}
-                        
+                        {{ form.Convert(class="ide-button",id="convert") }}                                           
                         
 
                         
                     </br> </br> </br>
                     <div class="main1">
-                        <div class="ide">                            
+                        <img class="ide">                            
                             <div class="save-title-des">
-                                <pre><p style="display:inline;color:#B9F3FC;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline,style="background-color:#F7C8E0;") }}<p style="display:inline;color:#B9F3FC;"></p>                       {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#F7C8E0;")}}</pre>
+                                <pre><p style="display:inline;color:#443C68;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline,style="background-color:#F7C8E0;visibility:hidden;") }}<p style="display:inline;color:#443C68;"></p>                       {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#F7C8E0;visibility:hidden;")}}</pre>
                             </div>
-                            <div class="editor">
-      <div class="line-numbers">
+                            <div class="editor" style="background-color: #443C68;">
+      <!-- <div class="line-numbers">
         <span></span>
-      </div>
-      {{ form.code(class="temp1",rows='23',cols='50', placeholder="Enter Code here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';position:relative;float:left;") }}
+      </div> -->
+      
+      {{ form.code(class="temp1",rows='23',cols='55', placeholder="Enter Code here..." ,style="background-color:#FFF8D6;font-family:'Times New Roman';position:absoulte;top:220px;float:left;") }}
 
     </div>  
                             
-                            <h4 for="comment" style="position:absolute;top:180px;left:1100px;">Predefined input:</h4>
-                            {{ form.input(rows='6',cols='30',placeholder="Enter Input here..." ,style="background-color:#F0EEED;font-family:'Times New Roman';position:absolute;top:220px;left:1100px;")}}
-                            <h4 for="comment" style="position:absolute;top:460px;left:1100px;">Output:</h4>
-                            {{ form.output(rows='6',cols='30',style="background-color:#F0EEED;font-family:'Times New Roman';position:absolute;top:500px;left:1100px;") }}
+                            <h4 for="comment" style="position:absolute;top:180px;left:1100px;color:#F79540;">Predefined input:</h4>
+                            {{ form.input(rows='6',cols='30',placeholder="Enter Input here..." ,style="background-color:#FFF8D6;font-family:'Times New Roman';position:absolute;top:220px;left:1100px;")}}
+                            <h4 for="comment" style="position:absolute;top:460px;left:1100px;color:#F79540;">Output:</h4>
+                            {{ form.output(rows='6',cols='30',style="background-color:#FFF8D6;font-family:'Times New Roman';position:absolute;top:500px;left:1100px;") }}
                             
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <script>
+        <!-- <script>
             const textarea = document.querySelector('.temp1')
             const lineNumbers = document.querySelector('.line-numbers')
       
@@ -167,6 +169,6 @@
                 event.preventDefault()
               }
             })
-          </script>
+          </script> -->
     </body>
 {% endblock %}
