@@ -1,12 +1,20 @@
     {% extends "layout.html" %}
 
     {% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">        
+
+
     <style>
+        body{
+            background-image: url('\\static\\temp2.jpg');
+
+        }
 
             input[type=submit] {
               width: 150%;
               background-color: #4CAF50;
-              color: black;
+              color: white;
               padding: 12px 20px;
               margin: 8px 0;
               border: 1px solid #ccc;
@@ -19,15 +27,27 @@
               padding: 8px 5px;
               font-size: 30px;
             }
-            .container {
-              padding: 10px;
-              background-color: #443C68;
-              color:white;
-            }
+            .glow {
+                font-size: 25px;
+                font-weight: bolder;
+                color: white;
+                -webkit-animation: glow 1s ease-in-out infinite alternate;
+                -moz-animation: glow 1s ease-in-out infinite alternate;
+                animation: glow 1s ease-in-out infinite alternate;
+              }
+              
+              @-webkit-keyframes glow {
+                from {
+                  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+                }
+                to {
+                  text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+                }
+              }
 
         </style>
-    <body  style="background-color: #443C68">
-        <div class="container">
+    <body >
+        <div class="glow">
             <div class="form-login" style="width: 30%; margin-left: 30%; margin-top:1px; ">
                 <form name="login" action="" method="post" novalidate>
                     <fieldset class="form-group">

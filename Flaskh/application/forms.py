@@ -32,6 +32,17 @@ class Compiler(FlaskForm):
     title = TextAreaField("title")
     description = TextAreaField("description")
     code = TextAreaField("code")
+    code.default='''
+    // Online C compiler to run C program online
+    #include <stdio.h>
+
+    int main() {
+        // Write C code here
+        printf("Hello world");
+
+        return 0;
+    }
+    '''
     input = TextAreaField("input")
     output = TextAreaField("output")
     language = SelectField("language", choices=['C', 'C++'])

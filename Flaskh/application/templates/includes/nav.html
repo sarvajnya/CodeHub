@@ -1,6 +1,11 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">        
+
     <style>
-        h2{
-            color: #999999;
+        nav {
+            background-image: url('\\static\\temp1.jpg');
+        }
+        h2 {
             text-align: center;
             font-family: verdana;
             font-size: 35px;
@@ -18,7 +23,6 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #E1EEDD;
             overflow-x: hidden;
             padding-top: 20px;
         }
@@ -26,9 +30,10 @@
         .sidenav a {
           padding: 6px 8px 6px 16px;
           text-decoration: none;
-          font-size: 20px;
+          font-size: 25px;
           color: #2e16b2;
           display: block;
+          font-weight: bold;
         }
 
         .sidenav a:hover {
@@ -39,7 +44,6 @@
           margin-left: 220px; 
           font-size: 20px; 
           padding: 0px 10px;
-          background-color: #443C68;
           
         }
 
@@ -47,17 +51,27 @@
           .sidenav {padding-top: 15px;}
           .sidenav a {font-size: 18px;}
         }
+
+        
     </style>
-    <nav class="sidenav">
-        <h2 style="color: #540375; font-family:cursive;font-size:300%;font-weight: 800;">CODEHUB</h2><br><br><br>
+    
+    <nav class="sidenav" id="sidenav">
+        <h2 style="color: #F15A59; font-family:cursive;font-size:300%;font-weight:1500;opacity:1;">CODEHUB</h2><br><br><br>
             <ul>
-                <a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}">IDE</a></li>
+                <a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}" style="opacity:1;">IDE</a></li>
                 {% if not session['user_name'] %}
-                    <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link {% if register %}active{% endif %}">Register</a></li>
-                    <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}">Login</a></li>
+                    <li class="nav-item" style="opacity:1;"><a href="{{ url_for('register') }}" class="nav-link {% if register %}active{% endif %}" style="opacity:1;">Register</a></li>
+                    <li class="nav-item" style="opacity:1;"><a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}" style="opacity:1;">Login</a></li>
                 {% else %}
-                    <li class="nav-item"><a href="{{ url_for('SavedCode') }}" class="nav-link {% if SavedCode %}active{% endif %}">Saved Code</a></li>
-                    <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link {% if logout %}active{% endif %}">Logout</a></li>
+                    <li class="nav-item" style="opacity:1;"><a href="{{ url_for('SavedCode') }}" class="nav-link {% if SavedCode %}active{% endif %}" style="opacity:1;">Saved Code</a></li>
+                    <li class="nav-item" style="opacity:1;"><a href="{{ url_for('logout') }}" class="nav-link {% if logout %}active{% endif %}" style="opacity:1;">Logout</a></li>
                 {% endif %}
             </ul>
     </nav>
+
+
+
+
+
+
+

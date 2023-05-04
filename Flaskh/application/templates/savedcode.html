@@ -1,31 +1,39 @@
 {% extends "layout.html"%}
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
     <style>
+        body{
+            background-image: url('\\static\\temp2.jpg');
+
+        }
         .col-md-12{
             padding: 10px;
-            background-color: #443C68;
+            
             color:#ABA930;
         }
         .form1{
             padding: 10px;
-            background-color: #443C68;
+            
             color:#ABA930;
+        }
+        table {
+            position: absolute;
+            left:70px;
         }
 
     </style>
-    <body style="background-color: #443C68">
+    <body >
         <div class="row">
             <div class="col-md-12 text-center">
                 {% if not savedCode %}
-                    <center><h1>You have no saved Code.</h1></center>
+                    <center><h5>You have no saved Code.</h5></center>
                 {% else %}
                     <h1>Saved Codes : </h1>
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">No</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Description</th>
                             <th scope="col">language</th>
                             <th scope="col">Date - Time</th>
                             <th scope="col">Edit</th>
@@ -40,14 +48,11 @@
                             <form name="form1" action="{{ url_for('SavedCode') }}" method="POST">
                                 <tr>
 
-                                    <td scope='row'>{{count}}</td>
                                     <td>{{Code["title"]}}</td>
-                                    <td>{{Code["description"]}}</td>
                                     <td>{{Code["language"]}}</td>
                                     <td>{{Code["date"]}}</td>
 
                                     <input type="hidden" name="title" value="{{Code['title']}}">
-                                    <input type="hidden" name="description" value="{{Code['description']}}">
                                     <input type="hidden" name="language" value="{{Code['language']}}">
                                     <input type="hidden" name="date" value="{{Code['date']}}">
                                     <input type="hidden" name="code" value="{{Code['code']}}">

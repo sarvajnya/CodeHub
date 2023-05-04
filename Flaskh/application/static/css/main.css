@@ -99,7 +99,7 @@ body {
     position: relative;
     margin:0px;
     color: white;
-    background-color: #443C68;
+   
 }
 
 #aboutUs h2{
@@ -141,8 +141,3 @@ body {
 .container {
               padding: 10px;
             }
-#endregion
-
-.index-container{
-    background-color: #443C68;
-}

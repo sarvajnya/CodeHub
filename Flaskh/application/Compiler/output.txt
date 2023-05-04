@@ -1,38 +1,8 @@
 
 from math import sqrt
-##include <stdio.h>
+##include <iostream>
 def main():
 
-    n=0
-    i=0
-    flag=0
-
-    flag=0
-    n = int(input())
-    # 0 and 1 are not prime numbers
-    # change flag to 1 for non-prime number
-    if(n==0 or n==1):
-
-        flag=1
-
-    for i in range(2,n//2+1,1):
-
-        # if n is divisible by i, then n is not prime
-        # change flag to 1 for non-prime number
-        if(n%i==0):
-
-            flag=1
-            break
-
-
-    # flag is 0 for prime numbers
-    if(flag==0):
-
-        print(f'{n} is a prime number.')
-
-    else:
-
-        print(f'{n} is not a prime number.')
-
+    std::cout<<"hello"
     return 0
 main()

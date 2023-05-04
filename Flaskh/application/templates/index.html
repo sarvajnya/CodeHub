@@ -1,29 +1,139 @@
 {% extends "layout.html" %}
 {% block content %}
     <head>
-     
-        <style>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">        
+      <script>
+        function toggle()
+        {
+          var element = document.body;
+       element.classList.toggle("dark-mode");
+        }
+    
+    
+    
+    
+    function openFullscreen() {
+      var elem = document.getElementById("sample");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+
+    }    
+    
+    
+    
+    
+      </script>  
+      <style>
+          
+body .sun {
+  display: none;
+}
+body #toggle-dark-mode-mobile {
+  background-color: black;
+}
+body .glow {
+  color: black;
+}
+.dark-mode {
+  background-color: #082032;
+  color: white;
+}
+.dark-mode #toggle-dark-mode-mobile {
+  background-color: white;
+}
+.dark-mode .sun {
+  display: block;
+}
+.dark-mode .moon {
+  display: none;
+}
+.dark-mode #sample, .dark-mode #ele {
+  background-color: black;
+  color: white;
+}
+.dark-mode .glow {
+  color:white
+}
+.dark-mode .ide-button {
+  background-color: white;
+  text-align: center;
+  border-radius: 50px;  
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 5px;
+  cursor: pointer;  
+  font-weight: bolder;
+
+}
+
+
+
+    #toggle-dark-mode-mobile  {
+      border-radius: 50px;  
+      display: inline-block;
+      margin: 4px 5px;
+      cursor: pointer;
+
+      position:absolute;
+      margin-left: 1160px;
+      top:20px;
+      width: 50px;
+      height: 50px;
+      
+    }
+    #full {
+      
+      border-radius: 50px;  
+      display: inline-block;
+      margin: 4px 5px;
+      cursor: pointer;  
+
+      position:absolute;
+      margin-left: 1240px;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      color: black;
+    }
+
+
+          
+        
+        
+
+
             body{
-              background-color: #443C68;
-                font-family: cursive;  
-                resize: none;             
+              
+              background-color: #FEFCF3;
+              color: black;
+              font-family: cursive;  
+                resize: none;  
+                           
             }
            
             .index-container{
                   margin-left: 2px; 
                   font-size: 20px; 
                   padding: 10px 00px;
-                  background-color: #443C68;
             }
             .form1{
-                background-color: #443C68;
                 width: 100%;
                 height: 100%;
             }
           
             .ide-button{                
-                
-                background-color: #FFB84C;
+                background-color: #FFF6BF;
                 text-align: center;
                 border-radius: 50px;  
                 color: #144272;
@@ -33,79 +143,100 @@
                 display: inline-block;
                 font-size: 18px;
                 margin: 4px 5px;
-                cursor: pointer;                              
+                cursor: pointer;  
+                font-weight: bolder;                          
             }
             
-            .main{
-            background-color: #443C68;
-            }
+           
             .ide{            
             color:black;
             }
             textarea{
                 color:black;
                 resize: none;
-                background-color:#443C68;
             }
 
             
-            .ide-button:hover{
-                background-color: #ABA930;
+            .ide-button:hover,.button-menu:hover{
+                background-color: #48313e;
                 color: white;
             }
 
             .save-title-des{
-                background-color: #443C68;
                 float:center;
             }
-            .main1{
-                background-color: #443C68;
-            }
+           
             .editor {
                 display: inline-flex;
                 gap: 10px;
                 font-family: monospace;
                 line-height: 21px;
-                background: #282a3a;
                 border-radius: 2px;
                 padding: 20px 10px;
               }
         
-              .line-numbers {
-                width: 20px;
-                text-align: right;
-              }
+              
         
-              .line-numbers span {
-                counter-increment:  linenumber;
+              
+              #ele,#sample {
+                font-weight: bolder; 
+                color: black;
+                padding: 10px 25px;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 18px;
+                margin: 4px 5px;
+                cursor: pointer;
+                background-color: #FDF4F5;
+                font-size: 19px;
               }
-        
-              .line-numbers span::before {
-                content: counter(linenumber);
-                display: block;
-                color: #506882;
+              .glow {
+                font-size: 30px;
+                font-weight: bolder;
+                color: #fff;
+                text-align: center;
+                -webkit-animation: glow 1s ease-in-out infinite alternate;
+                -moz-animation: glow 1s ease-in-out infinite alternate;
+                animation: glow 1s ease-in-out infinite alternate;
               }
-        
-              #temp1 {
-                line-height: 21px;
-                overflow-y: hidden;
-                padding: 0;
-                border: 0;
-                background: #282a3a;
-                color: #FFF;
-                min-width: 500px;
-                outline: none;
-                resize: none;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
+              
+              @-webkit-keyframes glow {
+                from {
+                  text-shadow: 0 0 10px #fff, 0 0 20px #f20808, 0 0 30px #57d0d9, 0 0 40px #96edea, 0 0 50px #86c0ef, 0 0 60px #1f0fcd, 0 0 70px #53ed7c;
+                }
+                to {
+                  text-shadow: 0 0 20px #fff, 0 0 30px #f10707, 0 0 40px #57d0d9, 0 0 50px #96edea, 0 0 60px #86c0ef, 0 0 70px #1f0fcd, 0 0 80px #53ed7c;
+                }
               }
               
               
         </style>
     </head>
     <body>
+      
+      <Button id="toggle-dark-mode-mobile" onclick="toggle()">
+        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon" style="color:white">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" y1="1" x2="12" y2="3"></line>
+<line x1="12" y1="21" x2="12" y2="23"></line>
+<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+<line x1="1" y1="12" x2="3" y2="12"></line>
+<line x1="21" y1="12" x2="23" y2="12"></line>
+<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+</Button>
+<button id="full" onclick="openFullscreen()">
+<img src="static\\full.png" />
+</button>
+
+
+
         <div class ="index-container">
             <form class="form1" action="{{ url_for('index') }}" method="post" novalidate>
                 {{ form.hidden_tag() }}
@@ -119,28 +250,27 @@
                             <option value= "{{language}}" >{{language}}</option>"
                         {% endfor %}
                         {{ form.Convert(class="ide-button",id="convert") }}                                           
-                        
-
+                
                         
                     </br> </br> </br>
                     <div class="main1">
                         <img class="ide">                            
                             <div class="save-title-des">
-                                <pre><p style="display:inline;color:#443C68;"></p>{{ form.title(rows='1', cols='25%',placeholder="Enter Title here...",display= inline,style="background-color:#F7C8E0;visibility:hidden;") }}<p style="display:inline;color:#443C68;"></p>                       {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#F7C8E0;visibility:hidden;")}}</pre>
+                                {{ form.title(id="ele",rows='1', cols='57%',placeholder="Enter Title here...",display= inline,style="font-family:'Times New Roman';float:left;position:absolute;top:120px;margin-left:1.2%;") }}                       {{ form.description(rows='1', cols='25%',placeholder="Enter Description here...",display=inline,style="background-color:#FFF8D6;display:none;")}}
                             </div>
-                            <div class="editor" style="background-color: #443C68;">
+                            <div class="editor">
       <!-- <div class="line-numbers">
         <span></span>
       </div> -->
       
-      {{ form.code(class="temp1",rows='23',cols='55', placeholder="Enter Code here..." ,style="background-color:#FFF8D6;font-family:'Times New Roman';position:absoulte;top:220px;float:left;") }}
+      {{ form.code(id="sample", class="temp1",rows='21',cols='53%',value="C",placeholder="Enter your code here...",style="font-size:20px;font-family:'Times New Roman';position:absoulte;margin-top:60px;float:left;") }}
 
     </div>  
                             
-                            <h4 for="comment" style="position:absolute;top:180px;left:1100px;color:#F79540;">Predefined input:</h4>
-                            {{ form.input(rows='6',cols='30',placeholder="Enter Input here..." ,style="background-color:#FFF8D6;font-family:'Times New Roman';position:absolute;top:220px;left:1100px;")}}
-                            <h4 for="comment" style="position:absolute;top:460px;left:1100px;color:#F79540;">Output:</h4>
-                            {{ form.output(rows='6',cols='30',style="background-color:#FFF8D6;font-family:'Times New Roman';position:absolute;top:500px;left:1100px;") }}
+                            <h4 for="comment" class="glow" style="position:absolute;top: 175px;left:1110px;">Predefined input:</h4>
+                            {{ form.input(id="ele",rows='6',cols='30',placeholder="Enter Input here..." ,style="font-family:'Times New Roman';position:absolute;top:222px;left:1100px;")}}
+                            <h4 for="comment" class="glow" style="position:absolute;top:463px;left:1110px;">Output:</h4>
+                            {{ form.output(id="ele",rows='5',cols='30',style="font-family:'Times New Roman';position:absolute;top:512px;left:1100px;") }}
                             
                         </div>
                     </div>
@@ -170,5 +300,7 @@
               }
             })
           </script> -->
+
+         
     </body>
 {% endblock %}

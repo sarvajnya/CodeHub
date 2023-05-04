@@ -48,4 +48,7 @@ class c_compiler:
                 else:
                     error_line = error_string
                 return_string = error_line
-        return str(return_string,encoding="utf-8")
+        try :
+            return str(return_string,encoding="utf-8")
+        except:
+            return str(return_string)
