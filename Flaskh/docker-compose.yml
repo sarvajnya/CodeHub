@@ -1,0 +1,10 @@
+version: "3.2"
+
+services:
+  build: ./flaskh
+  container_name: codehub
+  restart: always
+  environment:
+    - APP_NAME=CodeHub
+  expose:
+    - 5000
