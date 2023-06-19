@@ -1,4 +1,0 @@
-D:\OnlineCompilerUsingCloudComputing\Flaskh>venv\scripts\activate
-
-
-(venv) D:\OnlineCompilerUsingCloudComputing\Flaskh>flask run
